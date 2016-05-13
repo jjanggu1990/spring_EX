@@ -28,15 +28,16 @@
     </bean>
     
     
-    
+    <!-- 
 	<bean id="jdbcTemplate" 
 	class="org.springframework.jdbc.core.JdbcTemplate"
 		p:dataSource-ref="dataSource" />
 		
 	<bean id="jdbcDao" class="db_1.jdbcDao"
 		p:jdbcTemplate-ref="jdbcTemplate"/>
-		
-		
+		 -->
+	<bean id ="jdbcDao2" class="db_1.jdbcDao"
+		p:dataSource-ref="dataSource"/>	
     
     
 </beans>
