@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>maven</groupId>
+  <artifactId>maven_ex</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <repositories>
+		<repository>
+			<id>oracle</id>
+			<name>ORACLE JDBC Repository</name>
+			<url>http://mesir.googlecode.com/svn/trunk/mavenrepo</url>
+		</repository> 
+   </repositories>
+  <dependencies>
+  	 <dependency>
+  			 <groupId>ojdbc</groupId>
+    		<artifactId>smack-custom</artifactId>
+    		<scope>system</scope>
+    	<systemPath>${project.basedir}/lib/ojdbc6.jar</systemPath>
+    </dependency>
+    <dependency>
+          <groupId>com.oracle</groupId>
+            <artifactId>ojdbc14</artifactId>
+      </dependency>
+  </dependencies>
+  <dependencyManagement>
+  	<dependencies>
+  		<dependency>
+  			<groupId>ojdbc</groupId>
+  			<artifactId>smack-custom</artifactId>
+  			<version>1.0.0</version>
+  		</dependency>
+  		<dependency>
+  			<groupId>com.oracle</groupId>
+  			<artifactId>ojdbc14</artifactId>
+  			<version>10.2.0.4.0</version>
+  		</dependency>
+  	</dependencies>
+  </dependencyManagement>
+</project>

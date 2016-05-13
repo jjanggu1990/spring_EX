@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       	http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
+
+	<bean name="writeArticleService" 
+	class="madvirus.spring.chap01.WriteArticleServiceImpl"
+	autowire="byType">
+		<!-- <constructor-arg>
+			<ref bean="articleDao" />
+		</constructor-arg> -->
+		<!-- <property name="articleDao">
+			<ref bean="ariticleDao"/>
+		</property>
+		<property name="i">
+			<value>10</value>
+		</property> -->
+		<!-- <property name="articleDao">
+			<null/>
+		</property> -->
+	</bean>
+
+	<bean name="articleDao" class="madvirus.spring.chap01.MySQLArticleDao" />
+	<!-- <bean name="article" class="madvirus.spring.chap01.Article"/> -->
+	
+	<bean id = "bar" class="DI_pattern.Bar"/>
+	<bean id = "baz" class="DI_pattern.Baz"/>
+	
+	<bean id= "foo" class="DI_pattern.Foo" init-method="start" destroy-method="stop"/>
+<!-- 	
+	<bean id = "foo" class="DI_pattern.Foo">
+		<constructor-arg>
+			<ref bean="bar"/>
+		</constructor-arg>
+		<constructor-arg ref="baz"/>
+	</bean>
+	
+	<bean id = "foo1" class="DI_pattern.Foo">
+		<constructor-arg>
+			<value>안녕 </value>
+		</constructor-arg>
+		<constructor-arg >
+			<value type="int">1</value>
+		</constructor-arg>
+	</bean>
+	 -->
+	<!-- <bean id = "foo2" class="DI_pattern.Foo">
+		<property name="bar">
+			<ref bean="bar" />
+		</property>
+		<property name="baz" ref="baz"/>
+	</bean>
+	 -->
+<!-- 	 <bean id="foo3" class="DI_pattern.Foo">
+	 	<lookup-method name="getBar" bean="bar" />
+	 </bean> -->
+</beans>
