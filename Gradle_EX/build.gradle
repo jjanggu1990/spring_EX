@@ -18,7 +18,7 @@ dependencies {
 	compile 'commons-dbcp:commons-dbcp:1.4'
 	compile 'commons-pool:commons-pool:1.6'
 	compile 'org.springframework:spring-jdbc:4.2.5.RELEASE'
-	runtime files ('/src/main/ojdbc6.jar')
+	runtime files ('/lib/ojdbc6.jar')
 	compile 'ojdbc:ojdbc:14'
 	compile 'org.springframework:spring-webmvc:4.2.1.RELEASE'
     compile 'org.aspectj:aspectjweaver:1.8.9'
