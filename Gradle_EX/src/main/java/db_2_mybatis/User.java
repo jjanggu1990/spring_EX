@@ -15,8 +15,6 @@ public class User {
 		this.name = name;
 		this.email = email;
 	}
-	
-	
 	public String getMemberid() {
 		return memberid;
 	}
