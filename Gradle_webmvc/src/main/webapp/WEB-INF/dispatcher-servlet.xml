@@ -17,6 +17,9 @@
             http://www.springframework.org/schema/task 
             http://www.springframework.org/schema/task/spring-task-4.2.xsd">
             
+         	<context:annotation-config/>
+            <!-- <context:component-scan base-package="spring.controller"></context:component-scan> -->
+            
 			<bean id="helloController" class="spring.controller.HelloController" />
 
 			<bean id="viewResolver"	class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -30,5 +33,37 @@
 			<bean id="articleService" class="spring.service.ArticleService" />	
 
 			<bean class="spring.controller.OrderController" />
+			
+			
+			<bean class="spring.controller.GameSearchController"
+				p:searchService-ref="searchService" />
+
+			<bean id="searchService" class="spring.service.SearchService" />
+			
+			<bean id="searchController" class="spring.controller.SearchController" />
+			
+			<bean id="cookieController" class="spring.controller.CookieController" />
+			
+			<bean class="spring.controller.HeaderController" />
+			
+			<bean class="spring.controller.CharacterInfoController" />
+			
+	 		<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+				<property name="alwaysUseFullPath" value="true" />
+			</bean>
+			<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+				<property name="alwaysUseFullPath" value="true" />		
+			</bean>
+			
+			<bean class="spring.controller.CreateAccountController" />
+			
+			<bean id="messageSource"
+				class="org.springframework.context.support.ResourceBundleMessageSource">
+				<property name="basenames">
+					<list>
+						<value>messages.validation</value>
+					</list>
+				</property>
+			</bean>
 
 </beans>

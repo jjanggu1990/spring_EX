@@ -14,7 +14,7 @@ public class OrderController {
 	public String form() {
 		return "order/orderForm";
 	}
-	
+
 	@RequestMapping(method = RequestMethod.POST)
 	public String submit(OrderCommand orderCommand) {
 		return "order/orderCompletion";
