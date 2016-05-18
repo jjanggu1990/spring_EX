@@ -1,27 +1,27 @@
-<%@ page contentType="text/html; charset=EUC-KR"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ page isELIgnored="false"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>°èÁ¤ »ý¼º</title>
+<title>ê³„ì • ìƒì„±</title>
 </head>
 <body>
 	<spring:hasBindErrors name="command" />
 	<form:errors path="command" />
 	<form method="post">
-		¾ÆÀÌµð: <input type="text" name="id" value="${command.id}" />
+		ì•„ì´ë””: <input type="text" name="id" value="${command.id}" />
 		<form:errors path="command.id" />
-		<br /> ÀÌ¸§: <input type="text" name="name" value="${command.name}" />
+		<br /> ì´ë¦„: <input type="text" name="name" value="${command.name}" />
 		<form:errors path="command.name" />
-		<br /> ¿ìÆí¹øÈ£: <input type="text" name="address.zipcode"
+		<br /> ìš°íŽ¸ë²ˆí˜¸: <input type="text" name="address.zipcode"
 			value="${command.address.zipcode}" />
 		<form:errors path="command.address.zipcode" />
-		<br /> ÁÖ¼Ò1: <input type="text" name="address.address1"
+		<br /> ì£¼ì†Œ1: <input type="text" name="address.address1"
 			value="${command.address.address1}" />
 		<form:errors path="command.address.address1" />
-		<br /> ÁÖ¼Ò2: <input type="text" name="address.address2"
+		<br /> ì£¼ì†Œ2: <input type="text" name="address.address2"
 			value="${command.address.address2}" />
 		<form:errors path="command.address.address2" />
 		<br /> <input type="submit" />

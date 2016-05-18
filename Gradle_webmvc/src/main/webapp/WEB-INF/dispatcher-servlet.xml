@@ -65,5 +65,12 @@
 					</list>
 				</property>
 			</bean>
+			
+			<bean id="authenticator" class="spring.service.MockAuthenticator"
+				p:commonLogger-ref="commonLogger" />
+
+			<bean class="spring.controller.LoginController">
+				<property name="authenticator" ref="authenticator" />
+			</bean>
 
 </beans>

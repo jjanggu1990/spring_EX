@@ -1,4 +1,5 @@
 package spring.controller;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
@@ -38,8 +39,7 @@ public class CreateAccountController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String submit(@ModelAttribute("command") MemberInfo memberInfo,
-			BindingResult result) {
+	public String submit(@ModelAttribute("command") MemberInfo memberInfo, BindingResult result) {
 		new MemberInfoValidator().validate(memberInfo, result);
 		if (result.hasErrors()) {
 			return "account/creationForm";

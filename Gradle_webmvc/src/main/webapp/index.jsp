@@ -16,6 +16,7 @@
 	<a href="cookie/view.do">/cookie/view.do</a><br>
 	<a href="header/check.do">/header/check.do</a><br>
 	<a href="game/users/jj/characters/11">/game/users/jj/characters/11</a><br>
-	<a href="account/create.do">/account/create.do</a>
+	<a href="account/create.do">/account/create.do</a><br>
+	<a href="login/login.do">/login/login.do</a>
 </body>
 </html>
