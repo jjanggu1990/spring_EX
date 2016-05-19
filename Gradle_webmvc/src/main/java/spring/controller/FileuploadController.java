@@ -4,6 +4,7 @@ import java.io.File;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -18,13 +19,17 @@ import spring.model.FileInfo;
 @Controller
 public class FileuploadController {
 	
-	/*@Autowired
+	@Autowired
 	FileInfoDAO dao;
 	
 	public void setDao(FileInfoDAO dao) {
 		this.dao = dao;
 	}
-*/
+
+	public FileInfoDAO getDao() {
+		return dao;
+	}
+
 	@RequestMapping("/fileupload/fileupload_form.do")
 	public String form() {
 		return "fileupload/upload_form";

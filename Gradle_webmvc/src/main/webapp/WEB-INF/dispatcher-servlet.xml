@@ -81,7 +81,7 @@
 
 	
 	
-<!-- 	
+	
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE" />
@@ -98,8 +98,8 @@
     <bean id="dao" class="mybatis.FileInfoDAO">
 		<property name="session" ref="sqlSession"/>
 	</bean>
-	 -->
-<!-- 	<bean class="spring.controller.FileuploadController"
-		p:FileInfoDAO-ref="dao"/>
-	 -->
+	 
+	<bean class="spring.controller.FileuploadController">
+	</bean>
+	 
 </beans>
