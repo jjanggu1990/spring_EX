@@ -20,6 +20,11 @@
 	<a href="login/login.do">/login/login.do</a><br>
 	<a href="report/submission.do">/report/submission.do</a><br>
 	<a href="fileupload/fileupload_form.do">파일업로드</a><br>
-	<!-- <img src="img/1463657862243su.png"> -->
+	<a href="log/query.do">/log/query.do</a><br>
+	<a href="event/list.do">/event/list.do</a><br>
+	<a href="math/divide.do?op1=100&op2=0">/math/divide.do</a><br>
+	<a href="math/add.do?op1=100&op2=0">/math/add.do</a><br>
+	
+	<!--  <img src="img/1463657862243su.png"> -->
 </body>
 </html>

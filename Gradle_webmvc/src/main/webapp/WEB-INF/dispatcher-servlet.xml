@@ -49,6 +49,11 @@
 	<bean
 		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
 		<property name="alwaysUseFullPath" value="true" />
+		<property name="interceptors">
+			<list>
+				<ref bean="eventExpirationCheckInterceptor" />
+			</list>
+		</property>
 	</bean>
 	<bean
 		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
@@ -100,6 +105,29 @@
 	</bean>
 	 
 	<bean class="spring.controller.FileuploadController">
+	</bean>
+	 
+	 
+	 <bean class="spring.controller.QueryLogController" />
+	 <bean class="spring.controller.EventController" />
+	 <bean id="eventExpirationCheckInterceptor" class="interceptor.EventExpirationCheckInterceptor" />
+	 
+	 <bean class="spring.controller.ArithmeticOperatorController" />
+	 
+	 
+	 <!-- 에러 처리 -->
+	 <bean
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="java.lang.ArithmeticException">
+					error/mathException
+				</prop>
+				<prop key="java.lang.Exception">
+					error/exception
+				</prop>
+			</props>
+		</property>
 	</bean>
 	 
 </beans>
