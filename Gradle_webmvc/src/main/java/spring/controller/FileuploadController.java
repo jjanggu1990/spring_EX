@@ -36,10 +36,10 @@ public class FileuploadController {
 	}
 
 	@RequestMapping(value = "/fileupload/fileupload.do", method = RequestMethod.POST)
-	public String file_upload(@RequestParam("file1") MultipartFile file1, HttpServletRequest request) {
+	public String file_upload(@RequestParam("file1") MultipartFile info, HttpServletRequest request) {
 		System.out.println("여긴 들어오나?");
 		try {
-			request.setAttribute("file1",upload(file1));
+			request.setAttribute("file1",upload(info));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -47,9 +47,10 @@ public class FileuploadController {
 	}
 	
 	private String upload(MultipartFile info) throws Exception{
-		
-		String path = "C://Users//user2//Documents//workspace-sts-3.7.3.RELEASE//Gradle_webmvc//src//main//webapp//img//";
-		
+		//학원 경로
+		//String path = "C://Users//user2//Documents//workspace-sts-3.7.3.RELEASE//Gradle_webmvc//src//main//webapp//img//";
+		//노트북 경로
+		String path = "C://Users//jin_notebook//Documents//workspace-sts-3.7.3.RELEASE//Gradle_webmvc//src//main//webapp//img//";
 		String name = info.getOriginalFilename();
 		String real_path= path+System.currentTimeMillis()+name;
 		int size = info.getInputStream().available();
@@ -59,8 +60,8 @@ public class FileuploadController {
 		fileinfo.setPath(real_path);
 		fileinfo.setFilesize(size);
 		
-		AbstractApplicationContext context = new GenericXmlApplicationContext("mybatis.xml");
-		FileInfoDAO dao = (FileInfoDAO)context.getBean("dao");
+		/*AbstractApplicationContext context = new GenericXmlApplicationContext("mybatis.xml");
+		FileInfoDAO dao = (FileInfoDAO)context.getBean("dao");*/
 		System.out.println("여기가 에런가??");
 		int result = dao.insertFileInfo(fileinfo);
 		System.out.println("real_path :: "+real_path);
@@ -68,7 +69,7 @@ public class FileuploadController {
 		
 		File f = new File(real_path);
 		info.transferTo(f);
-		context.close();
+//		context.close();
 		return name;
 	}
 }

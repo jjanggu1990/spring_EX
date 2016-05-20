@@ -20,6 +20,6 @@
 	<a href="login/login.do">/login/login.do</a><br>
 	<a href="report/submission.do">/report/submission.do</a><br>
 	<a href="fileupload/fileupload_form.do">파일업로드</a><br>
-	<img src="img/1463657862243su.png">
+	<!-- <img src="img/1463657862243su.png"> -->
 </body>
 </html>
