@@ -54,6 +54,9 @@
         		<a href="<c:url value='/download/pageJsonReport'/>">/download/pageJsonReport</a>
         		(PageReportController 및 MappingJacksonJsonView JSON 응답 예제)
         	</li>
+        	<li>
+        		<a href="<c:url value='/download/list'/>" >다운로드 리스트</a>
+        	</li>
         </ul>
     </body>
 </html>

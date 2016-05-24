@@ -7,6 +7,7 @@ public class FileInfo {
 	String name;
 	Date upload_date;
 	int filesize;
+	String realname;
 	
 	public String getPath() {
 		return path;
@@ -32,5 +33,12 @@ public class FileInfo {
 	public void setFilesize(int filesize) {
 		this.filesize = filesize;
 	}
+	public String getRealname() {
+		return realname;
+	}
+	public void setRealname(String realname) {
+		this.realname = realname;
+	}
+	
 
 }

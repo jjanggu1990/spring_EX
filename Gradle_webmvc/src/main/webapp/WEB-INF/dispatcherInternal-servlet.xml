@@ -25,8 +25,9 @@
 			<ref bean="mock"></ref>
 		</property>
 	</bean>
-
-	<bean id="viewResolver"
+	<bean id="viewResolver1"
+		class="org.springframework.web.servlet.view.BeanNameViewResolver" />
+	<bean id="viewResolver2"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/jsp/" />
 		<property name="suffix" value=".jsp" />
@@ -43,4 +44,53 @@
 	</bean>
 
 	<bean class="spring2.controller.RegistMemberController" />
+
+
+	<!-- LocaleChangeController2 컨트롤러가 locale 을 설정해줌 -->
+	<bean class="spring2.controller.LocaleChangeController">
+		<property name="localeResolver" ref="localeResolver" />
+	</bean>
+
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.SessionLocaleResolver" />
+	<bean class="spring2.controller.LocaleChangeController2" />
+
+
+
+	<!-- 컨트롤러가 따로 필요 없음 language 라는 파라미터가 요청되면 바로 locale 적용됨 -->
+	<bean id="localeChangeInterceptor"
+		class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"
+		p:paramName="language" />
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+		<property name="interceptors">
+			<list>
+				<ref bean="localeChangeInterceptor" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="downloadController" class="spring2.controller.DownloadController" />
+
+	<bean id="download" class="spring2.view.DownloadView" />
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE" />
+		<property name="username" value="scott" />
+		<property name="password" value="tiger" />
+	</bean>
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
+		p:dataSource-ref="dataSource" p:mapperLocations="classpath:sql/*.xml" />
+
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+    	<constructor-arg ref="sqlSessionFactory"/>
+    </bean>
+   
+    <bean id="dao" class="mybatis.FileInfoDAO">
+		<property name="session" ref="sqlSession"/>
+	</bean>
+	
+	<bean class="spring2.controller.DownloadListController" />
+	
 </beans>
