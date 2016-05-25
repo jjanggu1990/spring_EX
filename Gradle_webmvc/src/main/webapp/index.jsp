@@ -24,7 +24,7 @@
 	<a href="event/list.do">/event/list.do</a><br>
 	<a href="math/divide.do?op1=100&op2=0">/math/divide.do</a><br>
 	<a href="math/add.do?op1=100&op2=0">/math/add.do</a><br>
-	
+	<a href="test.do?name=notnull">test</a>
 	<!--  <img src="img/1463657862243su.png"> -->
 </body>
 </html>

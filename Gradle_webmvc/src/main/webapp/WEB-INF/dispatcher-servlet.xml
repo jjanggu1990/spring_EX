@@ -129,5 +129,6 @@
 			</props>
 		</property>
 	</bean>
-	 
+	 <bean class="spring.controller.Test"/>
+
 </beans>

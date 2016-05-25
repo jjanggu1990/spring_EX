@@ -22,6 +22,9 @@ public class FileInfoDAO{ //extends SqlSessionDaoSupport {
 	public int insertFileInfo(FileInfo fileInfo){
 		return session.insert("FileInfo.insert",fileInfo);
 	}
-
+	public FileInfo selectRealName(String filename){
+		return session.selectOne("FileInfo.selectRealName",filename);
+	}
+	
 
 }
