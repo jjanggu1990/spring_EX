@@ -84,13 +84,37 @@
 		p:dataSource-ref="dataSource" p:mapperLocations="classpath:sql/*.xml" />
 
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
-    	<constructor-arg ref="sqlSessionFactory"/>
-    </bean>
-   
-    <bean id="dao" class="mybatis.FileInfoDAO">
-		<property name="session" ref="sqlSession"/>
+		<constructor-arg ref="sqlSessionFactory" />
 	</bean>
-	
+
+	<bean id="dao" class="mybatis.FileInfoDAO">
+		<property name="session" ref="sqlSession" />
+	</bean>
+
 	<bean class="spring2.controller.DownloadListController" />
-	
+
+	<bean id="pageRanksController" class="spring2.controller.PageRanksController" />
+	<bean id="pageRanks" class="spring2.view.PageRanksView" />
+	<bean id="pageReportController" class="spring2.controller.PageReportController" />
+	<bean id="pageReport" class="spring2.view.PageReportView" />
+
+	<bean id="pageXmlReport"
+		class="org.springframework.web.servlet.view.xml.MarshallingView">
+		<property name="marshaller" ref="marshaller" />
+		<property name="modelKey" value="report" />
+	</bean>
+
+	<bean id="marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+		<property name="classesToBeBound">
+			<list>
+				<value>spring2.controller.PageRankReport</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="pageJsonReport"
+		class="org.springframework.web.servlet.view.json.MappingJackson2JsonView" />
+
+
+
 </beans>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+
+	<context:component-scan base-package="view.controller" />
+
+	<bean id="viewResolver1"
+		class="org.springframework.web.servlet.view.BeanNameViewResolver" />
+
+	<bean id="viewResolver2"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/viewjsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	<bean id="authenticator" class="view.controller.MockAuthenticator" />
+
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.SessionLocaleResolver" />
+
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>message.validation</value>
+				<value>message.label</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="localeChangeInterceptor"
+		class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"
+		p:paramName="language" />
+
+	<bean
+class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+		<property name="interceptors">
+			<list>
+				<ref bean="localeChangeInterceptor" />
+			</list>
+		</property>
+	</bean>
+	
+	<!-- LocaleChangeInterceptor는 paramName프로퍼티로 설정한 
+	요청파라미터가 존재할 경우
+	파라미터 값을 이용해서 Locale을 생성한 뒤 
+	LocaleResolver를 이용해서 Locale을 변경한다. 
+	이후 요청에서는 변경된  locale이 적용된다. -->
+	
+	
+	<!-- jsp(html)외의 view -->
+	<bean class="view.DownloadView" id="download" />
+
+	 <bean class="view.PageRanksView" id="pageRanks" />
+
+	<bean class="view.PageReportView" id="pageReport" /> 
+ 	<bean class="org.springframework.web.servlet.view.xml.MarshallingView"
+		id="pageXmlReport">
+		<property ref="marshaller" name="marshaller" />
+		<property name="modelKey" value="report" />
+	</bean> 
+
+ 	<bean class="org.springframework.oxm.jaxb.Jaxb2Marshaller" 
+ 	id="marshaller">
+		<property name="classesToBeBound">
+			<list>
+				<value>view.controller.PageRankReport</value>
+			</list>
+		</property>
+	</bean> 
+
+ 	<bean
+		class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"
+		id="pageJsonReport" />
+  
+ </beans>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

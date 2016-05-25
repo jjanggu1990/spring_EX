@@ -7,14 +7,14 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-	        classpath:common.xml
-	    </param-value>
+			classpath:common.xml
+		</param-value>
 	</context-param>
 	<context-param>
 		<param-name>defaultHtmlEscape</param-name>
 		<param-value>false</param-value>
 	</context-param>
-	
+
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -31,17 +31,30 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-	
+
 	<servlet>
 		<servlet-name>dispatcher</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet
 		</servlet-class>
 	</servlet>
- 	<servlet>
+	<servlet>
 		<servlet-name>dispatcherInternal</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
-	</servlet> 
+	</servlet>
+
+	<servlet>
+		<servlet-name>dispatcherTiles</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>dispatcherTiles</servlet-name>
+		<url-pattern>/tiles/*</url-pattern>
+	</servlet-mapping>
+
+
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
 		<url-pattern>*.do</url-pattern>
@@ -59,5 +72,5 @@
 		<servlet-name>dispatcherInternal</servlet-name>
 		<url-pattern>/download/*</url-pattern>
 	</servlet-mapping>
-	
+
 </web-app>

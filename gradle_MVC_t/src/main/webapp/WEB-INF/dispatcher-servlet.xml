@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans   
+       	http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+       	       	http://www.springframework.org/schema/context 
+	 http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+	<bean id="helloController" class="spring.controller.HelloController" />
+
+	<bean id="newArticleController" class="spring.controller.NewArticleController"
+		p:articleService-ref="articleService" />
+
+	<bean id="articleService" class="spring.service.ArticleService" />
+
+	<bean class="spring.controller.OrderController" />
+
+
+	<bean class="spring.controller.GameSearchController"
+		p:searchService-ref="searchService" />
+
+	<bean id="searchService" class="spring.service.SearchService" />
+
+	<bean id="searchController" class="spring.controller.SearchController" />
+
+	<bean class="spring.controller.CreateAccountController" />
+
+	<bean id="cookieController" class="spring.controller.CookieController" />
+
+	<bean class="spring.controller.HeaderController" />
+
+	<bean class="spring.controller.CharacterInfoController" />
+
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+		<property name="alwaysUseFullPath" value="true" />
+		<property name="interceptors">
+			<list>
+				<ref bean="eventExpirationCheckInterceptor" />
+			</list>
+		</property>
+	</bean>
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="alwaysUseFullPath" value="true" />
+	</bean>
+
+	<bean id="commonLogger" class="spring.common.CommonLoggerImpl" />
+
+	<bean id="authenticator" class="spring.service.MockAuthenticator"
+		p:commonLogger-ref="commonLogger" />
+
+	<bean class="spring.controller.LoginController">
+		<property name="authenticator" ref="authenticator" />
+	</bean>
+
+	<bean class="spring.controller.ReportSubmissionController" />
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	</bean>
+
+	<bean class="spring.controller.QueryLogController" />
+
+	<bean class="spring.controller.EventController" />
+
+	<bean id="eventExpirationCheckInterceptor" class="spring.interceptor.EventExpirationCheckInterceptor" />
+
+	<bean class="spring.controller.ArithmeticOperatorController" />
+	<bean
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="java.lang.ArithmeticException">
+					error/mathException
+				</prop>
+				<prop key="java.lang.Exception">
+					error/exception
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>messages.validation</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+
+</beans>
