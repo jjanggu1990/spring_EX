@@ -8,7 +8,10 @@
 
 	<definition name="base_layout"
 		template="/WEB-INF/viewtiles/template/layout.jsp"
-		preparer="spring.tiles.MenuPreparer">
+		preparer="menuPreparer">
+		<!-- (위) servlet의 bean id로 등록 -->
+		<!-- SimpleSpringPreparerFactory 방식으로 패키지명.클래스명 -->
+		<!-- preparer="spring.tiles.MenuPreparer"> -->
 		<put-attribute name="header"
 			value="/WEB-INF/viewtiles/template/header.jsp" />
 		<put-attribute name="footer"

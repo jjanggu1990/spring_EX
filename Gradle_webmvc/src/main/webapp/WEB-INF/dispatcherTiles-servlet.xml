@@ -4,9 +4,9 @@
 	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+       http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
        http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+       http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
 	<bean class="tiles.controller.LoginController">
 		<property name="authenticator">
@@ -25,9 +25,16 @@
 				<value>/WEB-INF/tilesdef/tilesdef.xml</value>
 			</list>
 		</property>
-		<property name="preparerFactoryClass" value="org.springframework.web.servlet.view.tiles3.SimpleSpringPreparerFactory"></property>
+		<!-- 패키지명.클래스명 -->
+<!-- 		<property name="preparerFactoryClass"
+			value="org.springframework.web.servlet.view.tiles3.SimpleSpringPreparerFactory">
+		</property> -->
+		<!-- 클래스명 -->
+		<property name="preparerFactoryClass"
+			value="org.springframework.web.servlet.view.tiles3.SpringBeanPreparerFactory">
+		</property>
 	</bean>
- <bean id="menuPreparer" class="spring.tiles.MenuPreparer" /> 
+	<bean id="menuPreparer" class="spring.tiles.MenuPreparer" />
 
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
