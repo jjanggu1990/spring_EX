@@ -8,5 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
+<% response.sendRedirect("index.do"); %>
 </body>
 </html>

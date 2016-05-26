@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
-<tiles:importAttribute name="menuList"/>
+<%-- <tiles:importAttribute name="menuList"/>
  
-<c:forEach var="menu" items="${menuList}">${menu} </c:forEach> 
+<c:forEach var="menu" items="${menuList}">${menu} </c:forEach>  --%>
 | 환영합니다!

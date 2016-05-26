@@ -15,45 +15,17 @@
             http://www.springframework.org/schema/task/spring-task-4.2.xsd">
 
 	<context:annotation-config />
-	<!-- <context:component-scan base-package="spring.controller"></context:component-scan> -->
+	<context:component-scan base-package="spring.controller"></context:component-scan>
 
-	<bean id="helloController" class="spring.controller.HelloController" />
-
-	<bean id="viewResolver"
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/" />
-		<property name="suffix" value=".jsp" />
-	</bean>
+	
 
 
-	<bean
-		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
-		<property name="alwaysUseFullPath" value="true" />
-		<property name="interceptors">
-			<list>
-				<ref bean="eventExpirationCheckInterceptor" />
-			</list>
-		</property>
-	</bean>
-	<bean
-		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
-		<property name="alwaysUseFullPath" value="true" />
-	</bean>
+	
 
 
-	<bean id="messageSource"
-		class="org.springframework.context.support.ResourceBundleMessageSource">
-		<property name="basenames">
-			<list>
-				<value>messages.validation</value>
-			</list>
-		</property>
-	</bean>
 
 
-	<bean id="multipartResolver"
-		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-	</bean>
+	
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
@@ -68,7 +40,7 @@
     	<constructor-arg ref="sqlSessionFactory"/>
     </bean>
    
-    <bean id="dao" class="mybatis.FileInfoDAO">
+    <bean  class="mybatis.UserInfoDAO">
 		<property name="session" ref="sqlSession"/>
 	</bean>
 	 
@@ -90,5 +62,17 @@
 			value="org.springframework.web.servlet.view.tiles3.SpringBeanPreparerFactory">
 		</property>
 	</bean>
-	<bean id="menuPreparer" class="spring.tiles.MenuPreparer" />
+		<bean id="beanNameResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver" />
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
+	<!-- <bean id="menuPreparer" class="spring.tiles.MenuPreparer" /> -->
+	
+	
+	
+	<bean id="pageRanks" class="spring.view.PageRanksView" />
+	
 </beans>

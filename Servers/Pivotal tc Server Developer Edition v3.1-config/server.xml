@@ -16,7 +16,7 @@
             </Realm>
             <Host appBase="webapps" autoDeploy="true" deployOnStartup="true" deployXML="true" name="localhost" unpackWARs="true">
                 <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log." suffix=".txt"/>
-            <Context docBase="Gradle_webmvc" path="/Gradle_webmvc" reloadable="true" source="org.eclipse.jst.j2ee.server:Gradle_webmvc"/><Context docBase="gradle_MVC_t" path="/gradle_MVC_t" reloadable="true" source="org.eclipse.jst.j2ee.server:gradle_MVC_t"/></Host>
+            <Context docBase="Gradle_webmvc" path="/Gradle_webmvc" reloadable="true" source="org.eclipse.jst.j2ee.server:Gradle_webmvc"/><Context docBase="gradle_MVC_t" path="/gradle_MVC_t" reloadable="true" source="org.eclipse.jst.j2ee.server:gradle_MVC_t"/><Context docBase="Gradle_web_Testing" path="/Gradle_web_Testing" reloadable="true" source="org.eclipse.jst.j2ee.server:Gradle_web_Testing"/></Host>
         </Engine>
         <Connector acceptCount="100" connectionTimeout="20000" executor="tomcatThreadPool" maxKeepAliveRequests="15" port="${bio.http.port}" protocol="org.apache.coyote.http11.Http11Protocol" redirectPort="${bio.https.port}"/>
     </Service>
