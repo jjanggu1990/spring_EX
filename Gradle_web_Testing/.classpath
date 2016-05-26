@@ -255,7 +255,7 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/jin_notebook/Documents/workspace-sts-3.7.3.RELEASE/Gradle_webmvc/libs/ojdbc6.jar" exported="true">
+	<classpathentry kind="lib" path="C:/Users/jin_notebook/Documents/workspace-sts-3.7.3.RELEASE/Gradle_web_Testing/libs/ojdbc6.jar" exported="true">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>

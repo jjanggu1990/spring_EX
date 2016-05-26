@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-modules id="moduleCoreId" project-version="2.0">
-	<wb-module deploy-name="Gradle_webmvc">
-		<property name="context-root" value="Gradle_webmvc"/>
+	<wb-module deploy-name="Gradle_web_Testing">
+		<property name="context-root" value="Gradle_web_Testing"/>
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/resources"/>
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/java"/>
-		<wb-resource deploy-path="/" source-path="src/main/webapp"/>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/jin_notebook/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-simple/1.7.6/12aaccff7811a8c619bad5954b96823589d2476e/slf4j-simple-1.7.6.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
@@ -149,7 +148,7 @@
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/jin_notebook/.gradle/caches/modules-2/files-2.1/commons-beanutils/commons-beanutils/1.8.0/c651d5103c649c12b20d53731643e5fffceb536/commons-beanutils-1.8.0.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
-		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/jin_notebook/Documents/workspace-sts-3.7.3.RELEASE/Gradle_webmvc/libs/ojdbc6.jar">
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/jin_notebook/Documents/workspace-sts-3.7.3.RELEASE/Gradle_web_Testing/libs/ojdbc6.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
 	</wb-module>
