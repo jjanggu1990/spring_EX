@@ -9,6 +9,8 @@ public class UserInfoCommand {
 	int age;
 	String phonenumber;
 	Date joindate;
+	String address;
+	String zipcode;
 	
 	public String getEmail() {
 		return email;
@@ -46,5 +48,19 @@ public class UserInfoCommand {
 	public void setJoindate(Date joindate) {
 		this.joindate = joindate;
 	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getZipcode() {
+		return zipcode;
+	}
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
+	}
+	
+	
 	
 }

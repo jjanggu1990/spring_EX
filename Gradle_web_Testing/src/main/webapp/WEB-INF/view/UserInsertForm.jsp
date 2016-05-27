@@ -23,26 +23,35 @@
 			return false;
 		}
 	}
+	function searchZipcode(){
+	    window.open("Zipcode.do?area4=", "네이버새창", "width=500, height=700, toolbar=no, menubar=no, scrollbars=yes, resizable=no" ); 
+	}
 	$(document).ready(function(){
 		$('#div_ex').css('background-color','#d0e4fe');
+		$('#ptag').text('asdasdfsadf');
 	});
+	
+	
 	
 </script>
 <style>
-	#div_ex(
+	#div_ex{
 		width:100px;
 		height:100px;
-	)
+	}
 </style>
 </head>
 <body>
-<div id="div_ex"></div> 
+<div id="div_ex"><p id="ptag"></p></div> 
 <form action="UserInsertPro.do" method="post" name="userinfo" onsubmit="return checkpassword1()">
 	이메일<input type="text" name="email" required="required"><br>
 	비밀번호<input type="password" name="password" onkeyup="checkpassword()" required="required"><br>
 	비밀번호확인<input type="password" name="password1" onkeyup="checkpassword()" required="required"><input type="text" id="check_area" value="" readonly="readonly"></input><br>
 	나이<input type="text" name="age" required="required"><br>
 	핸드폰번호<input type="text" name="phonenumber" required="required"><br>
+	주소<input type="text" name="zipcode" required="required"> 
+	<input type="text" name="address" required="required">
+	<input value="주소찾기" type="button" onclick=searchZipcode()><br>
 	<input type="submit" value="회원가입"><input onclick= "location.href ='index.do'" type="button" value="취소"><br>
 </form>
 </body>

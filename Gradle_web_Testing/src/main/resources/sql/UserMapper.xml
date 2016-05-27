@@ -11,7 +11,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from userinfo where email=#{email}
 	</select>
 	<insert id="insertUserInfo" parameterType="spring.model.UserInfoCommand">
-		insert into userinfo values	(#{email},#{password},#{age},#{phonenumber},sysdate)
+		insert into userinfo values	(#{email},#{password},#{age},#{phonenumber},sysdate,#{address},#{zipcode})
 	</insert>
 	<select id="login" parameterType="spring.model.UserInfoCommand" resultType="int">
 		select count(*) from userinfo where email=#{email} and password=#{password}
