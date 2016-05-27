@@ -24,7 +24,7 @@
 		}
 	}
 	function searchZipcode(){
-	    window.open("Zipcode.do?area4=", "네이버새창", "width=500, height=700, toolbar=no, menubar=no, scrollbars=yes, resizable=no" ); 
+	    window.open("Zipcode.do?area4=", "주소찾기", "width=500, height=700, toolbar=no, menubar=no, scrollbars=yes, resizable=no" ); 
 	}
 	$(document).ready(function(){
 		$('#div_ex').css('background-color','#d0e4fe');
