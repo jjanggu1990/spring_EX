@@ -6,10 +6,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script>
+
+</script>
 </head>
 <body>
-<% response.sendRedirect("index.do"); %>
+	<form name="insertBoard" action="InsertBoard.do" method="post" onsubmit="return sessionCheck()">
+		<input name="subject" type="text"><br>
+		<textarea rows="10" cols="50" name="content"></textarea>
+		<input type="submit" value="게시하기">
+	</form>
+
 </body>
 </html>
-
-

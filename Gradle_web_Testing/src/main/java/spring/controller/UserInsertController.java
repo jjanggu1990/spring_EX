@@ -1,7 +1,5 @@
 package spring.controller;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -12,28 +10,28 @@ import mybatis.UserInfoDAO;
 import spring.model.UserInfoCommand;
 
 @Controller
-public class LoginProController {
-	
+public class UserInsertController {
 	@Autowired
 	UserInfoDAO dao;
 
 	public void setDao(UserInfoDAO dao) {
 		this.dao = dao;
 	}
-	
-	
-	@RequestMapping("/LoginPro.do")
-	private ModelAndView login(@ModelAttribute("logininfo") UserInfoCommand info, HttpSession session){
+	@RequestMapping("/UserInsertForm.do")
+	private String input(){
+		return "view/UserInsertForm";
+	}
+	@RequestMapping("/UserInsertPro.do")
+	private ModelAndView input(@ModelAttribute("userinfo") UserInfoCommand info){
 		ModelAndView mv = new ModelAndView("view/TEST");
-		//result가 1이면 로그인 성공 0이면 실패
-		int result = dao.login(info);
+		System.out.println(info.getEmail());
+		//result가 1이어야 성공 한 것임
+		int result = dao.insertUserInfo(info);
 		if(result==1){
-			session.setAttribute("memId", info.getEmail());
-			return mv;
+			System.out.println("인서트 쿼리 동작(회원가입)");
 		}else{
-			session.setAttribute("memId", null);
-			return mv;
+			System.out.println("인서트 쿼리 동작 실패(회원가입)");
 		}
-		
+		return mv;
 	}
 }

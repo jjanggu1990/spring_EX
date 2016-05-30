@@ -20,5 +20,6 @@
 	<a href="FindPasswordForm.do">비밀번호 찾기</a><br>
 </c:if>
 <a href="pageRanks.do">목록 엑셀로 뽑기</a><br>
+<a href="Board.do">게시판 보기</a>
 </body>
 </html>

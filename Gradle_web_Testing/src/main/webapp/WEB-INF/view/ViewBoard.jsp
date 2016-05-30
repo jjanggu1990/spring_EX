@@ -8,8 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<% response.sendRedirect("index.do"); %>
+
+번호 : ${content.num }<br>
+작성자:${content.email }<br>
+제목: ${content.subject }<br>
+내용 : ${content.content }<br>
+
 </body>
 </html>
-
-

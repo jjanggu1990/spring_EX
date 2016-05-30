@@ -10,7 +10,7 @@ import mybatis.UserInfoDAO;
 import spring.model.UserInfoCommand;
 
 @Controller
-public class FindPasswordProController {
+public class FindPasswordController {
 
 	@Autowired
 	UserInfoDAO dao;
@@ -19,6 +19,10 @@ public class FindPasswordProController {
 		this.dao = dao;
 	}
 	
+	@RequestMapping("/FindPasswordForm.do")
+	private String find(){
+		return "view/FindPasswordForm";
+	}
 	
 	@RequestMapping("/FindPasswordPro.do")
 	private ModelAndView find(@ModelAttribute("userinfo") UserInfoCommand info){
